@@ -21,12 +21,10 @@ body {
     width: 300px;
     height: 300px;
     background-color: blueviolet;
-    /*background-image: url("/img/other.jpg");*/
     margin-left: auto ;
     margin-right: auto ;
 }
 .buttons {
-    /*margin-top: 50px;*/
     width: 300px;
     margin-left: auto ;
     margin-right: auto ;
