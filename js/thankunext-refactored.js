@@ -1,6 +1,7 @@
 "use strict";
 
 
+
 window.onload = function () {
 
     var box = document.getElementById("box");
@@ -27,11 +28,18 @@ window.onload = function () {
         ''
     ];
 
+    var audioInst = document.createElement('audio');
+    audioInst.setAttribute('src', 'snd/thankunext-inst.mp3');
+
+    var audioVox = document.createElement('audio');
+    audioVox.setAttribute('src', 'snd/thankunext-next.mp3');
+
     document.getElementById("yes").onclick = function () {
         position++;
         document.getElementById('questions')
             .innerHTML = questions[position];
         box.style.backgroundImage = 'url("img/yes.jpg")';
+        audioInst.play();
     };
 
 
@@ -41,6 +49,12 @@ window.onload = function () {
         box.style.backgroundImage = 'url("img/nope.jpg")';
         document.getElementById("yes").disabled = true;
         document.getElementById("no").disabled = false;
+
+        if (audioInst.play()) {
+            audioInst.pause();
+        }
+
+        audioVox.play();
     };
 
 
