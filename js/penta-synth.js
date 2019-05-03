@@ -17,7 +17,6 @@
     var sound;
     var reverb;
 
-    // var context = new AudioContext();
 
 
 
@@ -36,10 +35,11 @@ function setup() {
         reverb = new p5.Reverb();
 
         // Connects synth to reverb with a
-        // reverbTime of 6 seconds, decayRate of 0.2%
+        // reverbTime of 2 seconds, decayRate of 0.2%
         reverb.process(synth, 2, 0.2);
 
         reverb.amp(2); // turn it up!
+
     }
 
     function draw() {
@@ -80,15 +80,4 @@ function setup() {
             sloop.start();
         }
     }
-
-// document.querySelector('body').addEventListener('click', function() {
-//     context.resume().then((function mouseClicked() {
-//         if (sloop.isPlaying) {
-//             sloop.pause();
-//         } else {
-//             sloop.start();
-//         }
-//     }))
-//         console.log('Playback resumed successfully');
-// });
 
