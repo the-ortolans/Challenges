@@ -1,0 +1,58 @@
+
+                        **Making buttons with both JavaScript and Jquery**
+                            **Prior to DOM Assessment on May 3, 2019**
+
+var subHeaders = function(){
+    document.getElementById('sub-header').style.color = "blue";
+    };
+    document.getElementById('chair').addEventListener('click', subHeaders, false);
+
+
+var mainHeaders = function(){ //Step 2
+    document.getElementById("main-header").innerHTML = "JavaScript is Awesome!"; //Step 3
+    };
+    document.getElementById('walls').addEventListener('click', mainHeaders, false); //Step 4
+============================================================================================
+
+$('.title').click(function() {
+    $('img').toggle();
+});
+
+$('h1.joined').hover(function(){
+    $('#joinMe').html('What is love')
+});
+
+$('h1.fade-in').click(function(){
+    $('.fade-in').hide();
+});
+
+$('.Products').dblclick(function(){
+    $('table.tables').css('font-size', '40px');
+});
+============================================================================================
+var listItems = document.getElementById('plan');
+listItems.innerHTML="Our Process";
+
+var listItem= function(){
+    document.getElementById('plan').innerHTML="WE HAVE NO PROCESSES AVAILABLE";
+};
+document.getElementById('chair').addEventListener('click',listItem,false);
+
+$('dt').click(function () {
+                $(this).addClass('highlight')
+            });
+
+
+
+var visions = document.getElementById('sight');
+visions.innerHTML="2020 Vision";
+
+var vision = function(){
+  document.getElementById('sight').style.color="red";
+};
+document.getElementById('walls').addEventListener('click', vision, false);
+
+
+                $('#toggle').click(function(){
+                 $('dd').toggleClass('invisible')
+                });
