@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Ajax Bonus #1</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
-$END$
+
+<!--### Joke and Quote Page-->
+
+<!--Create single page app with a center div and one button on the left and right of this -->
+<!--center div. When the left button is clicked, a random joke should be displayed in the center -->
+<!--div from [The Internet Chuck Norris Database](http://www.icndb.com/api/) ***(WARNING: some -->
+<!--jokes may be a bit off color)***. When the right button is clicked, a random programming -->
+<!--quote should be displayed in the center div from [Programming Quotes API]-->
+<!--(http://quotes.stormconsultancy.co.uk/api).-->
+
+
+<!--http://api.icndb.com/jokes/random/-->
+
+
+
+    <div class="questions mx-auto" id="questions"><h1></h1></div>
+
+
+<br>
+<div class='buttons text-center'>
+    <button type="button" class="btn btn-outline-primary" id="yes">CHUCK</button>
+    <button type="button" class="btn btn-outline-danger" id="no">PROGRAM</button>
+</div>
+<br>
+
+
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous">
+</script>
+
+<script type="text/javascript" src="js/AJAX-bonuses.js"></script>
+
 </body>
 </html>
