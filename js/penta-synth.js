@@ -6,70 +6,89 @@
  */
 
 
-var sloop;
-var pentatonic_scale = ['A', 'C', 'D', 'E', 'G'];
-var pitchClass_map = { 'A': 0, 'C': 1, 'D': 2, 'E': 3, 'G': 4 };
-var numOctaves = 5;
-var baseOctave = 2;
-var heightLevel;
-var system;
-var sound;
-var reverb;
+
+    var sloop;
+    var pentatonic_scale = ['A', 'C', 'D', 'E', 'G'];
+    var pitchClass_map = {'A': 0, 'C': 1, 'D': 2, 'E': 3, 'G': 4};
+    var numOctaves = 5;
+    var baseOctave = 2;
+    var heightLevel;
+    var system;
+    var sound;
+    var reverb;
+
+    // var context = new AudioContext();
+
+
 
 function setup() {
-    createCanvas(1250, 800);
 
-    // Create a synth to make sound with
-    synth = new p5.PolySynth();
-    // Create SoundLoop repeating every 0.3s
-    sloop = new p5.SoundLoop(soundLoop, 0.3);
+        createCanvas(1250, 800);
 
-    // Disconnect synth to pipe through reverb
-    synth.disconnect();
+        // Create a synth to make sound with
+        synth = new p5.PolySynth();
+        // Create SoundLoop repeating every 0.3s
+        sloop = new p5.SoundLoop(soundLoop, 0.3);
 
-    reverb = new p5.Reverb();
+        // Disconnect synth to pipe through reverb
+        synth.disconnect();
 
-    // Connects synth to reverb with a
-    // reverbTime of 6 seconds, decayRate of 0.2%
-    reverb.process(synth, 2, 0.2);
+        reverb = new p5.Reverb();
 
-    reverb.amp(2); // turn it up!
-}
+        // Connects synth to reverb with a
+        // reverbTime of 6 seconds, decayRate of 0.2%
+        reverb.process(synth, 2, 0.2);
 
-function draw() {
-    background(255);
-    // Mouse circle draw
-    if (mouseIsPressed) {
-        fill(0);
-    } else {
-        fill(255);
+        reverb.amp(2); // turn it up!
     }
-    ellipse(mouseX, mouseY, 80, 80);
 
-    // Get mouse height level
-    // stroke(255, 100);
-    heightLevel = round(numOctaves * (height - mouseY) / height);
-    line(0, height - heightLevel * height / numOctaves,
-        width, height - heightLevel * height / numOctaves);
-}
+    function draw() {
+        background(255);
 
+        // Mouse circle draw
+        if (mouseIsPressed) {
+            fill(0);
+        } else {
+            fill(255);
+        }
+        ellipse(mouseX, mouseY, 80, 80);
 
-function soundLoop(cycleStartTime) {
-    // Pick a random note, note octave based on mouse height
-    var pitchClass = random(pentatonic_scale);
-    var octave = baseOctave + heightLevel;
-    var currentNote = pitchClass + str(octave);
-    // Play sound
-    var velocity = 1; // Between 0-1
-    var duration = this.interval;
-    synth.play(currentNote, velocity, cycleStartTime, duration);
-
-}
-
-function mouseClicked() {
-    if (sloop.isPlaying) {
-        sloop.pause();
-    } else {
-        sloop.start();
+        // Get mouse height level
+        // stroke(255, 100);
+        heightLevel = round(numOctaves * (height - mouseY) / height);
+        line(0, height - heightLevel * height / numOctaves,
+            width, height - heightLevel * height / numOctaves);
     }
-}
+
+
+    function soundLoop(cycleStartTime) {
+        // Pick a random note, note octave based on mouse height
+        var pitchClass = random(pentatonic_scale);
+        var octave = baseOctave + heightLevel;
+        var currentNote = pitchClass + str(octave);
+        // Play sound
+        var velocity = 1; // Between 0-1
+        var duration = this.interval;
+        synth.play(currentNote, velocity, cycleStartTime, duration);
+
+    }
+
+    function mouseClicked() {
+        if (sloop.isPlaying) {
+            sloop.pause();
+        } else {
+            sloop.start();
+        }
+    }
+
+// document.querySelector('body').addEventListener('click', function() {
+//     context.resume().then((function mouseClicked() {
+//         if (sloop.isPlaying) {
+//             sloop.pause();
+//         } else {
+//             sloop.start();
+//         }
+//     }))
+//         console.log('Playback resumed successfully');
+// });
+
