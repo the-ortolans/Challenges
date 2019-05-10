@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars api fetch practice</title>
+</head>
+<body>
+<div>
+    <p>Please enter your name.</p>
+
+    <form>
+        <input type="text" placeholder="Enter Username Here">
+        <input type="submit" id="my-textbox">
+    </form>
+</div>
+
+
+
+<script>
+
+
+    //Add an input field and submit button (you will need to prevent the default behaviour) that when clicked, runs the
+    // following function...
+    //Create a function that takes in a username and fetch's the color preference based on the username and sets the
+    // background color to that color.
+
+    const backColor =(userName) => { //function with the parameter of userName.
+        fetch ('data/profiles.json')
+            .then(response => response.json())
+    .then(data => console.log(data)); //gives me the list of profiles with color names.
+
+    };
+    backColor();
+
+
+    let changeColor= function(){
+        document.getElementById('my-textbox').style.color="red";
+    };
+    document.querySelector('data').addEventListener('click', changeColor, false);
+
+
+
+
+
+    //===================================Fetch Bonus Exercise #2===================================================
+
+    //Using Star Wars Api, log the first film a Star Wars character's homeworld appeared in.
+    //Interpreted:log the first film Obi Wan Kenobi's homeworld appeared in.
+    //https://swapi.co/api/people/10/ Obi-Wan Kenobi
+    //https://swapi.co/api/planets/20/ Stewjon
+
+    //let personTen ='Obi-Wan Kenobi';
+    const homeWorld = (planet) => {
+        fetch('https://swapi.co/api/people/10/')// /people/10/ gets Obi-Wan from the SW Api
+            .then(response => response.json())//this .then turns the received data into a travers-able json object
+    .then(data => console.log(data.films[0]+ " The result is planet Stewjon in No results listed for films???"));
+    };
+    homeWorld();
+
+    //============================================================================================================
+
+
+
+
+</script>
+</body>
+</html>
