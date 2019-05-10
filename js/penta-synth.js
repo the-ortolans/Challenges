@@ -40,7 +40,13 @@ function setup() {
 
         reverb.amp(2); // turn it up!
 
-    }
+        userStartAudio().then(function() {
+        });
+
+}
+
+
+
 
     function draw() {
         background(255);
@@ -74,10 +80,12 @@ function setup() {
     }
 
     function mouseClicked() {
+
         if (sloop.isPlaying) {
             sloop.pause();
         } else {
             sloop.start();
         }
     }
+
 
