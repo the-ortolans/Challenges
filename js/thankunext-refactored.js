@@ -1,7 +1,6 @@
 "use strict";
 
 
-
 window.onload = function () {
 
     var box = document.getElementById("box");
@@ -38,7 +37,6 @@ window.onload = function () {
     audioKon.setAttribute('src', 'snd/thankunext-next-expl.mp3');
 
 
-
     document.getElementById("yes").onclick = function () {
         position++;
         document.getElementById('questions')
@@ -67,7 +65,6 @@ window.onload = function () {
         .innerHTML = questions[position];
 
 
-
     var konamiArr = [
         "ArrowUp",
         "ArrowUp",
@@ -83,20 +80,21 @@ window.onload = function () {
 
     var pushArr = [];
 
-    $(document).keyup(function(event){
+    $(document).keyup(function (event) {
 
         var konamid = true;
 
         pushArr.push(event.key);
 
-        if (pushArr.length > 10){
+        if (pushArr.length > 10) {
             pushArr.shift();
         }
 
         for (var i = 0; i < konamiArr.length; i++) {
 
-            if (konamiArr[i] !== pushArr[i]){
-                return konamid = false;}
+            if (konamiArr[i] !== pushArr[i]) {
+                return konamid = false;
+            }
         }
 
         if (konamid && pushArr.length === 10) {

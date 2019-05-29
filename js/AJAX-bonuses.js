@@ -14,7 +14,6 @@
         return html;
     }
 
-
             $.ajax('http://quotes.stormconsultancy.co.uk/random.json').done(function (jokes) {
                 console.log(jokes.quote);
                 // $('#questions').html(jokesHtml(jokes));

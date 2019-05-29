@@ -1,4 +1,3 @@
-
 // function setup() {
 //     createCanvas(1200, 1200);
 //     song = loadSound('assets/lucky_dragons_-_power_melody.mp3');
@@ -14,10 +13,6 @@
 //     ellipse(mouseX, mouseY, 80, 80);
 //
 // }
-
-
-
-
 
 
 var song = loadSound('/snd/thankunext-next.mp3');
